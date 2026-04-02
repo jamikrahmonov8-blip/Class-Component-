@@ -1,7 +1,9 @@
 import React from "react";
 import { Outlet, Link } from "react-router"; 
 import { useTranslation } from "react-i18next";
-
+import logo from "../assets/logo.png";
+import { Button } from "antd";
+import menu from "../assets/menu'.png";
 function Layout() {
   const { t, i18n } = useTranslation();
 
@@ -11,15 +13,23 @@ function Layout() {
 
   return (
     <div>
-      <div className="flex gap-[20px] items-center p-4 bg-gray-100">
-        <img src="/logo.png" alt="Logo" className="w-10" />
+      <div 
+  className="flex gap-[20px] items-center p-2 bg-gray-100 max-w-[1440px] mx-auto" 
+  style={{
+    boxShadow: "0px 4px 8px 0px #26323814, 0px 2px 4px 0px #26323814"
+  }}
+>
+        <div className="flex gap-[20px] items-center">
+          <img src={menu} alt="" className="block sm:hidden" />
+        <img src={logo} alt="Logo" className="w-10" /><h1 className="font-bold text-[48px]">Grid</h1>
+                  </div>
         
-        <nav className="flex gap-[15px]">
+        <nav className="flex gap-[15px] hidden sm:block">
           <Link to="/">{t("Home")}</Link>
           <Link to="/about">{t("About")}</Link>
         </nav>
 
-        <div className="ml-auto">{t("welcome")}</div>
+        <div className="ml-auto"><Button variant="solid" color="purple">Sign In</Button></div>
 
         <div className="flex gap-[10px]">
           <button 
